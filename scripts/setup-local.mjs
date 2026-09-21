@@ -1,0 +1,10 @@
+import { existsSync, mkdirSync, copyFileSync, writeFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+process.chdir(fileURLToPath(new URL('../',import.meta.url)));
+if (Number(process.versions.node.split('.')[0]) < 24) throw new Error('Install Node.js 24 or later, then reopen your terminal.');
+mkdirSync('.sites-runtime',{recursive:true});
+writeFileSync('.sites-runtime/execution-profile.json',JSON.stringify({executionProfile:'portable'}));
+if(!existsSync('.env')) copyFileSync('.env.example','.env');
+console.log('Local setup is ready. Your existing .env settings were preserved.');
+console.log('Next: pnpm db:local, then pnpm dev. Open http://localhost:5173');
+console.log('The included sample works without Make credentials. Live chat and saves require your own connection settings.');
