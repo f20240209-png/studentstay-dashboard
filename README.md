@@ -82,12 +82,6 @@ pnpm db:local
 pnpm dev
 ```
 
-Then open:
-
-```text
-http://localhost:5173
-```
-
 The included version runs with safe synthetic sample data. You can explore the dashboard, property details, transcript view and preference preview without connecting any external services.
 
 ## Optional Make connection
@@ -100,8 +94,6 @@ STUDENTSTAY_MAKE_SECRET=
 STUDENTSTAY_TEST_RECIPIENT=
 NEXT_PUBLIC_STUDENTSTAY_SHEET_URL=
 ```
-
-Do not commit `.env` to GitHub.
 
 The Make connection is optional for local design work. When connected, it can read and update the linked StudentStay workbook, so use an approved test recipient and retain all approval safeguards.
 
